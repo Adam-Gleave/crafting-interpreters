@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::fmt;
 use std::sync::OnceLock;
 
 use crate::Error;
@@ -47,6 +48,52 @@ pub enum Token {
     RightBrace,
     Semicolon,
     Eof,
+}
+
+impl fmt::Display for Token {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Token::Ident(s) => write!(f, "{s}"),
+            Token::String(s) => write!(f, "\"{s}\""),
+            Token::Number(n) => write!(f, "{n}"),
+            Token::True => write!(f, "true"),
+            Token::False => write!(f, "false"),
+            Token::Comma => write!(f, ","),
+            Token::Dot => write!(f, "."),
+            Token::Plus => write!(f, "+"),
+            Token::Minus => write!(f, "-"),
+            Token::Star => write!(f, "*"),
+            Token::Slash => write!(f, "/"),
+            Token::Eq => write!(f, "="),
+            Token::EqEq => write!(f, "=="),
+            Token::Not => write!(f, "!"),
+            Token::Ne => write!(f, "!="),
+            Token::Gt => write!(f, ">"),
+            Token::Ge => write!(f, ">="),
+            Token::Lt => write!(f, "<"),
+            Token::Le => write!(f, "<="),
+            Token::And => write!(f, "and"),
+            Token::Or => write!(f, "or"),
+            Token::If => write!(f, "if"),
+            Token::Else => write!(f, "else"),
+            Token::For => write!(f, "for"),
+            Token::While => write!(f, "while"),
+            Token::Nil => write!(f, "nil"),
+            Token::Fun => write!(f, "fun"),
+            Token::Class => write!(f, "class"),
+            Token::Return => write!(f, "return"),
+            Token::Super => write!(f, "super"),
+            Token::This => write!(f, "this"),
+            Token::Var => write!(f, "var"),
+            Token::Print => write!(f, "print"),
+            Token::LeftParen => write!(f, "("),
+            Token::RightParen => write!(f, ")"),
+            Token::LeftBrace => write!(f, "{{"),
+            Token::RightBrace => write!(f, "}}"),
+            Token::Semicolon => write!(f, ";"),
+            Token::Eof => write!(f, "EOF"),
+        }
+    }
 }
 
 pub struct Scanner {
