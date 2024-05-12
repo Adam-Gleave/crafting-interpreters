@@ -1,5 +1,6 @@
 use crate::scanner::Token;
 
+#[derive(Debug, Clone)]
 pub enum Expr {
     Literal(Token),
     Unary(Token, Box<Expr>),

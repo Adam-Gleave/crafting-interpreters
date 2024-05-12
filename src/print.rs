@@ -1,6 +1,5 @@
 use crate::ast::Expr;
 use crate::ast::Visitor;
-use crate::scanner::Token;
 
 pub struct PrettyPrinter;
 
@@ -41,6 +40,7 @@ fn parenthesize(list: impl IntoIterator<Item = String>) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::scanner::Token;
 
     #[test]
     fn test_pretty_print() {

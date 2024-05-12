@@ -7,7 +7,7 @@ use crate::Result;
 
 static KEYWORDS: OnceLock<HashMap<&'static str, Token>> = OnceLock::new();
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum Token {
     Ident(String),
     String(String),

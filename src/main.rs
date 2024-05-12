@@ -1,4 +1,5 @@
 mod ast;
+mod parser;
 mod print;
 mod scanner;
 
