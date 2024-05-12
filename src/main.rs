@@ -1,4 +1,5 @@
 mod ast;
+mod print;
 mod scanner;
 
 use std::fs::OpenOptions;
